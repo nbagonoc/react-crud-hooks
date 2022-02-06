@@ -1,7 +1,34 @@
+import CreateService from '../service/CreateService';
+import { useState } from 'react';
+import {Form,FormGroup,Label,Input,Button} from 'reactstrap';
+import {Link,useHistory} from 'react-router-dom';
+
+
 const Create = () => {
+  const[name,setName] = useState('');
+  const[weight,setWeight] = useState('');
+  const[size,setSize] = useState('');
+
+  const sendDataToAPI = () => {
+    const data = {name,weight,size}
+    CreateService(data)
+  }
+
   return (
     <>
-      <h1>Create</h1>
+      <h1 className=''>Create</h1>
+      <Form onSubmit={sendDataToAPI}>
+        <FormGroup>
+          <Label>Item:</Label>
+          <Input name='name' type='text' placeholder='enter item' onChange={e => setName(e.target.value)}></Input>
+          <Label>Weight:</Label>
+          <Input name='weight' type='text' placeholder='enter size' onChange={e => setWeight(e.target.value)}></Input>
+          <Label>Size:</Label>
+          <Input name='weight' type='text' placeholder='enter weight' onChange={e => setSize(e.target.value)}></Input>
+        </FormGroup>
+        <Button color='primary' type='submit'>Submit</Button>
+        <Link to='/' className='btn btn-danger ml-2'>Cancel</Link>
+      </Form>
     </>
   );
 };

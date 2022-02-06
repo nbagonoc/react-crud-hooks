@@ -1,7 +1,9 @@
+import List from "../components/List";
+
 const Home = () => {
   return (
     <>
-      <h1>Home</h1>
+      <List/>
     </>
   );
 };

@@ -10,7 +10,7 @@ const List = () => {
   useEffect(() => {
     getData();
   },[])
-  console.log('hello')
+
   return (
     <Table bordered>
   <thead>

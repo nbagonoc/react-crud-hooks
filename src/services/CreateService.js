@@ -1,8 +1,9 @@
 import axios from 'axios';
+import {API} from './Path'
 
 const CreateService = (data) => {
 	let {name, weight, size} = data;
-	axios.post(`http://localhost:5000/api/items`, {
+	axios.post(API, {
 		name,
 		weight,
 		size,

@@ -5,6 +5,7 @@ import {Link,useHistory} from 'react-router-dom';
 
 
 const Create = () => {
+  // Refactor. Move to service
   const[name,setName] = useState('');
   const[weight,setWeight] = useState('');
   const[size,setSize] = useState('');

@@ -10,7 +10,8 @@ const List = () => {
   const {deleteItem} = DeleteService();
 
   useEffect(() => {
-    getData();
+    getData()
+    console.log('loaded')
   },[])
 
   // toDo

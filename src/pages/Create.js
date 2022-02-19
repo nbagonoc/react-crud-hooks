@@ -1,18 +1,20 @@
-import CreateService from '../services/CreateService';
-import { useState } from 'react';
-import {Form,FormGroup,Label,Input,Button} from 'reactstrap';
-import {Link,useHistory} from 'react-router-dom';
+import CreateService from '../services/CreateService'
+import { useState } from 'react'
+import {Form,FormGroup,Label,Input,Button} from 'reactstrap'
+import {Link,useHistory} from 'react-router-dom'
 
 
 const Create = () => {
   // Refactor. Move to service
-  const[name,setName] = useState('');
-  const[weight,setWeight] = useState('');
-  const[size,setSize] = useState('');
+  const[name,setName] = useState('')
+  const[weight,setWeight] = useState('')
+  const[size,setSize] = useState('')
+  const history = useHistory()
 
   const sendDataToAPI = () => {
     const data = {name,weight,size}
     CreateService(data)
+    history.push('/')
   }
 
   return (

@@ -1,18 +1,18 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import { API } from '../services/Path';
-import {Form,FormGroup,Label,Input,Button} from 'reactstrap';
-import {Link,useParams,useHistory} from 'react-router-dom';
-import UpdateService from '../services/UpdateService';
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import { API } from '../services/Path'
+import {Form,FormGroup,Label,Input,Button} from 'reactstrap'
+import {Link,useParams,useHistory} from 'react-router-dom'
+import UpdateService from '../services/UpdateService'
 
 
 const Update = () => {
   // Refactor. Move to service
-  const[name,setName] = useState('');
-  const[weight,setWeight] = useState('');
-  const[size,setSize] = useState('');
-  const {id} = useParams();
-  const history = useHistory();
+  const[name,setName] = useState('')
+  const[weight,setWeight] = useState('')
+  const[size,setSize] = useState('')
+  const {id} = useParams()
+  const history = useHistory()
 
   useEffect(() => {
     getDataFromAPI()
@@ -25,14 +25,14 @@ const Update = () => {
       setName(res.data.name)
       setWeight(res.data.weight)
       setSize(res.data.size)
-    });
+    })
   }
 
   const sendDataToAPI = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     const data = {id,name,weight,size}
     UpdateService(data)
-    history.push('/');
+    history.push('/')
   }
 
   return (
@@ -51,7 +51,7 @@ const Update = () => {
         <Link to='/' className='btn btn-danger ml-2'>Cancel</Link>
       </Form>
     </>
-  );
-};
+  )
+}
 
-export default Update;
+export default Update

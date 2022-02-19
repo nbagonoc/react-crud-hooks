@@ -1,29 +1,23 @@
-import {useEffect} from 'react';
-import {Table,Button} from 'reactstrap';
-import {Link} from 'react-router-dom';
+import {useEffect,useState} from 'react'
+import {Table,Button} from 'reactstrap'
+import {Link} from 'react-router-dom'
 
-import DeleteService from '../services/DeleteService';
-import ReadAllService from '../services/ReadAllService';
+import DeleteService from '../services/DeleteService'
+import ReadAllService from '../services/ReadAllService'
 
 const List = () => {
-  const {apiData,getData} = ReadAllService();
-  const {deleteItem} = DeleteService();
+  const {apiData,getData} = ReadAllService()
+  const {deleteItem} = DeleteService()
 
   useEffect(() => {
     getData()
-    console.log('loaded')
-  },[])
+  },[apiData.length])
 
   // toDo
   // move this to a helper file
-  // const setID = (id) => {
-  //   console.log(id)
-  //   localStorage.setItem('ID',id)
-  // }
-
   const onDelete = (id) => {
-    deleteItem(id);
-    setTimeout(()=> getData(), 1000); //need to refactor. Figure out how to stop infinite loop with useEffect
+    deleteItem(id)
+    setTimeout(()=> getData(), 1000) //need to refactor. Figure out how to stop infinite loop with useEffect
   }
 
   return (
@@ -55,7 +49,7 @@ const List = () => {
       </tbody>
       </Table>
     ) : <h3>Loading...</h3>
-  );
-};
+  )
+}
 
-export default List;
+export default List

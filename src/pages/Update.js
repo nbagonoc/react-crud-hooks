@@ -1,37 +1,20 @@
-import { useState, useEffect } from 'react'
-import axios from 'axios'
-import { API } from '../services/Path'
+import { useEffect } from 'react'
 import {Form,FormGroup,Label,Input,Button} from 'reactstrap'
-import {Link,useParams,useHistory} from 'react-router-dom'
+import {Link,useHistory} from 'react-router-dom'
 import UpdateService from '../services/UpdateService'
 
 
 const Update = () => {
-  // Refactor. Move to service
-  const[name,setName] = useState('')
-  const[weight,setWeight] = useState('')
-  const[size,setSize] = useState('')
-  const {id} = useParams()
+  const {readData,updateData,name,setName,weight,setWeight,size,setSize} = UpdateService()
   const history = useHistory()
 
   useEffect(() => {
-    getDataFromAPI()
+    readData()
   },[])
-
-  const getDataFromAPI = () => {
-    axios
-    .get(`${API}/${id}`)
-    .then(res => {
-      setName(res.data.name)
-      setWeight(res.data.weight)
-      setSize(res.data.size)
-    })
-  }
 
   const sendDataToAPI = (e) => {
     e.preventDefault()
-    const data = {id,name,weight,size}
-    UpdateService(data)
+    updateData()
     history.push('/')
   }
 

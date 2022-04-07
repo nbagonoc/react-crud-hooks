@@ -30,15 +30,15 @@ const List = () => {
         </tr>
       </thead>
       <tbody>
-        {apiData.map(data=>{
+        {apiData?.map(({_id,name,weight,size})=>{
           return (
-            <tr key={data._id}>
-              <td>{data.name}</td>
-              <td>{data.weight}</td>
-              <td>{data.size}</td>
+            <tr key={_id}>
+              <td>{name}</td>
+              <td>{weight}</td>
+              <td>{size}</td>
               <td>
-                <Link onClick={()=>setFetchData(true)} to={`/update/${data._id}`} className='btn btn-primary mr-2'>Update</Link>
-                <Button color="danger" onClick={()=>[onDelete(data._id),setFetchData(true)]}>Delete</Button>
+                <Link onClick={()=>setFetchData(true)} to={`/update/${_id}`} className='btn btn-primary mr-2'>Update</Link>
+                <Button color="danger" onClick={()=>[onDelete(_id),setFetchData(true)]}>Delete</Button>
               </td>
             </tr>
           )

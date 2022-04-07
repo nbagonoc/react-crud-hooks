@@ -1,4 +1,4 @@
-import {useEffect,useState} from 'react'
+import {useEffect} from 'react'
 import {Table,Button} from 'reactstrap'
 import {Link} from 'react-router-dom'
 
@@ -13,8 +13,6 @@ const List = () => {
     getData()
   },[apiData.length])
 
-  // toDo
-  // move this to a helper file
   const onDelete = (id) => {
     deleteItem(id)
     setTimeout(()=> getData(), 1000) //need to refactor. Figure out how to stop infinite loop with useEffect

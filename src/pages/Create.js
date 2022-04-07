@@ -5,11 +5,10 @@ import {Link,useHistory} from 'react-router-dom'
 
 const Create = () => {
   const history = useHistory()
-  const {pushData,name,setName,weight,setWeight,size,setSize} = CreateService()
+  const {pushData,setName,setWeight,setSize} = CreateService()
 
   const sendDataToAPI = () => {
-    const data = {name,weight,size}
-    pushData(data)
+    pushData()
     history.push('/')
   }
 

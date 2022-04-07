@@ -7,8 +7,7 @@ const CreateService = () => {
   const[weight,setWeight] = useState('')
   const[size,setSize] = useState('')
   
-	const pushData = (data) => {
-		let {name, weight, size} = data;
+	const pushData = () => {
 		axios
 			.post(API, {
 				name,
@@ -17,7 +16,7 @@ const CreateService = () => {
 			});
 	}
 
-	return {pushData,name,setName,weight,setWeight,size,setSize}
+	return {pushData,setName,setWeight,setSize}
 }
 
 export default CreateService;

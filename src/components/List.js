@@ -9,14 +9,14 @@ const List = () => {
   const {apiData,getData} = ReadAllService()
   const {deleteItem} = DeleteService()
 
-  useEffect(() => {
-    getData()
-  },[apiData.length])
-
   const onDelete = (id) => {
     deleteItem(id)
-    setTimeout(()=> getData(), 1000) //need to refactor. Figure out how to stop infinite loop with useEffect
   }
+
+  useEffect(() => {
+    getData()
+  },[apiData]) //infinite loop but works
+  // },[apiData.length,count]) //need to refresh to get new data
 
   return (
     apiData.length > 0 ? (

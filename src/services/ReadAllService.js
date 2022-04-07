@@ -7,13 +7,13 @@ const ReadAllService = () => {
   
   const getData = () => {
     axios
-    .get(API)
-    .then(res => {
-      setApiData(res.data)
+      .get(API)
+      .then(res => {
+        setApiData(res.data)
     })
   }
   
-  return {apiData, getData};
+  return {apiData,getData};
 };
 
 export default ReadAllService;

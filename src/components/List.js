@@ -6,7 +6,7 @@ import DeleteService from '../services/DeleteService'
 import ReadAllService from '../services/ReadAllService'
 
 const List = () => {
-  const {apiData,getData} = ReadAllService()
+  const {apiData,fetchData,setFetchData,getData} = ReadAllService()
   const {deleteItem} = DeleteService()
 
   const onDelete = (id) => {
@@ -15,8 +15,8 @@ const List = () => {
 
   useEffect(() => {
     getData()
-  },[apiData]) //infinite loop but works
-  // },[apiData.length,count]) //need to refresh to get new data
+    setFetchData(false)
+  },[fetchData])
 
   return (
     apiData.length > 0 ? (
@@ -37,9 +37,8 @@ const List = () => {
               <td>{data.weight}</td>
               <td>{data.size}</td>
               <td>
-                <Link to={`/update/${data._id}`} className='btn btn-primary mr-2'>Update</Link>
-                <Button color="danger" onClick={()=>onDelete(data._id)}>Delete</Button>
-                {/* <Button color="danger" onClick={()=>setID(data._id)}>Delete</Button> */}
+                <Link onClick={()=>setFetchData(true)} to={`/update/${data._id}`} className='btn btn-primary mr-2'>Update</Link>
+                <Button color="danger" onClick={()=>[onDelete(data._id),setFetchData(true)]}>Delete</Button>
               </td>
             </tr>
           )

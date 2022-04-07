@@ -1,7 +1,7 @@
 import axios from 'axios';
 import {useParams} from 'react-router-dom'
 import {API} from './Path'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 const UpdateService = () => {
 	const[name,setName] = useState('')

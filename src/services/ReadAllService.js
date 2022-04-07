@@ -4,6 +4,7 @@ import {API} from './Path';
 
 const ReadAllService = () => {
   const [apiData, setApiData] = useState([]);
+  const [fetchData, setFetchData] = useState(true);
   
   const getData = () => {
     axios
@@ -13,7 +14,7 @@ const ReadAllService = () => {
     })
   }
   
-  return {apiData,getData};
+  return {apiData,fetchData,setFetchData,getData};
 };
 
 export default ReadAllService;

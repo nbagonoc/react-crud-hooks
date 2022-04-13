@@ -3,7 +3,7 @@ import {Navbar,Nav,NavItem} from 'reactstrap';
 
 const Navigation = () => {
   return (
-    <Navbar color='dark' dark>
+    <Navbar color='dark' dark className='mb-2'>
         <Link className='navbar-brand' to='/'>REACT-CRUD</Link>
         <Nav>
             <NavItem>

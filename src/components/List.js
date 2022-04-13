@@ -45,7 +45,7 @@ const List = () => {
         })}
       </tbody>
       </Table>
-    ) : <h3>Loading...</h3>
+    ) : <h3>No entries...</h3>
   )
 }
 
